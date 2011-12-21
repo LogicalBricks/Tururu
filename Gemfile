@@ -20,6 +20,12 @@ end
 gem 'jquery-rails'
 gem 'therubyracer'
 
+gem 'mongo_mapper'
+gem 'bson_ext'
+gem 'devise'
+gem 'mm-devise'
+
+gem 'omniauth-facebook'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

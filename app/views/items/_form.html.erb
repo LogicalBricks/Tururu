@@ -1,0 +1,20 @@
+<%= form_for @item do |f| %>
+
+  <% if @item.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> no puede ser salvado:</h2>
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+  </p>
+  <%= f.submit %>
+<% end %>
