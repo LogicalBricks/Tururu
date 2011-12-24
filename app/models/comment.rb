@@ -5,7 +5,7 @@ class Comment
   key :text, String
 
 
-  key :user_id, ObjectID
+  key :user_id, ObjectId
   timestamps!
   #
   #Relationships

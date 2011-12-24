@@ -1,5 +1,17 @@
 <p>
-<%= @item.title %>
+<p>Titulo: <%= @item.title %></p>
+<p>Usuario: <%= @item.user ? @item.user.email : '-' %></p>
+<p>Tags 
+<% @item.tags.each do |tag| %>
+  <%= tag+"|" %>
+<% end %>
+</p>
+
+<p>Urls:
+<% @item.urls.each do |url| %>
+  <%= url+"|" %>
+<% end %>
+</p>
 </p>
 
 <%= link_to 'Editar', edit_item_path %>

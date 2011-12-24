@@ -22,4 +22,13 @@ class Item
 
   # Relationships
   belongs_to :user
+
+  # Virtual attributes
+  #
+  attr_reader :tags_tokens
+
+  def tags_tokens=(tags)
+    self.tags = tags.split(",").map{|n| n.parameterize}.uniq
+  end
+
 end

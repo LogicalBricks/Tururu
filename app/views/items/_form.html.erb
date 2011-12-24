@@ -12,9 +12,17 @@
   <% end %>
 
 
+
   <p>
   <%= f.label :title %><br />
   <%= f.text_field :title %>
   </p>
+  <p>
+  <%= f.label :tags_tokens %><br />
+  <%= f.text_field :tags_tokens, 'data-prepopulate' => @item.tags.map{|n| {:id=> n, :name => n}}.to_json %>
+  </p>
+
+
+
   <%= f.submit %>
 <% end %>

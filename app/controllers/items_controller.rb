@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @items = Item.all
@@ -51,6 +52,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+    @item.user = current_user if user_signed_in?
     respond_to do |format|
       if @item.save
         format.html { redirect_to(@item,:notice=>'Elemento agregado correctamente') }

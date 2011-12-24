@@ -1,6 +1,6 @@
 <ul>
   <% @items.each do |item| %>
-    <li><%= item.title %> | <%= link_to 'Show', item %> | <%= link_to 'Edit', edit_item_path(item.id) %> </li>
+    <li><%= item.title %> | <%= item.user ? item.user.email : '-'  %> | <%= link_to 'Ver Detalles', item %> | <%= link_to 'Editar', edit_item_path(item.id) %> </li>
   <% end %>
 </ul>
 
