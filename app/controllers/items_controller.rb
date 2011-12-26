@@ -3,11 +3,13 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @tags = TagCloud.build.find()
     
     respond_to do |format|
       format.html
       format.json { render :json => @items } 
     end
+
   end
 
   def new

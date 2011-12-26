@@ -4,4 +4,7 @@
   <% end %>
 </ul>
 
+<% @tags.each do |tag| %>
+      <%= "#{tag['_id']}"%> (<%= "#{tag['value']}" %>)
+<% end %>
 <%= link_to 'Nuevo', new_item_path%>

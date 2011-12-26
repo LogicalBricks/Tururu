@@ -13,8 +13,6 @@
     });
   };
 
-  $(function() {
-    return load_tokeninput();
-  });
+  $(function() {});
 
 }).call(this);
