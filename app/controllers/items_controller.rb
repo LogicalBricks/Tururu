@@ -1,10 +1,16 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!
 
   def index
-    @items = Item.all
+    params and params[:tag] ? @items = Item.all(:tags => params[:tag]) : @items = Item.all
+    TagCloud.build.find({}, :sort=>([:value,:ascending])).limit(1).each do |tag|
+      @tagmin = tag['value']
+    end
+    TagCloud.build.find({}, :sort=>([:value,:descending])).limit(1).each do |tag|
+      @tagmax = tag['value']
+    end
     @tags = TagCloud.build.find()
-    
+
+
     respond_to do |format|
       format.html
       format.json { render :json => @items } 

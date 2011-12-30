@@ -35,13 +35,4 @@ class TagCloud
    Item.collection.map_reduce(self.map, self.reduce, { :out => "tag_cloud"})
  end
 
-=begin
- def self.get_tag_cloud(opts={})
-   hash = opts.merge({
-     :out    => {:inline => true},
-     :raw    => true
-   })
-   self.build(hash).find()
- end 
-=end
 end

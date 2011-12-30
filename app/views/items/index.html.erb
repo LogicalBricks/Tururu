@@ -4,7 +4,15 @@
   <% end %>
 </ul>
 
+<% 
+ maxPercent = 200
+ minPercent = 50
+ mult = (maxPercent - minPercent)/(@tagmax - @tagmin)
+%>
+<div style="background-color:#ccc; width:30%;">
 <% @tags.each do |tag| %>
-      <%= "#{tag['_id']}"%> (<%= "#{tag['value']}" %>)
+  <% size = minPercent + ((@tagmax - ( @tagmax - (tag['value']-@tagmin)))*mult) %>
+  <span style="font-size: <%= size %>%"><%= link_to  "#{tag['_id']}(#{tag['value']})",items_path(:tag=>tag['_id']) %></span>
 <% end %>
+</div>
 <%= link_to 'Nuevo', new_item_path%>
