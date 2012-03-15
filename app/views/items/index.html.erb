@@ -1,18 +1,22 @@
+<% if @items %>
+
 <ul>
   <% @items.each do |item| %>
     <li><%= item.title %> | <%= item.user ? item.user.email : '-'  %> | <%= link_to 'Ver Detalles', item %> | <%= link_to 'Editar', edit_item_path(item.id) %> </li>
   <% end %>
 </ul>
-
+<% else %>
+  <p>No hay datos</p>
+<% end %>
 <% 
  maxPercent = 200
  minPercent = 50
- mult = (maxPercent - minPercent)/(@tagmax - @tagmin)
+ mult = (maxPercent - minPercent)/(@tagmax - @tagmin) if @tagmax and @tagmin
 %>
 <div style="background-color:#ccc; width:30%;">
 <% @tags.each do |tag| %>
   <% size = minPercent + ((@tagmax - ( @tagmax - (tag['value']-@tagmin)))*mult) %>
   <span style="font-size: <%= size %>%"><%= link_to  "#{tag['_id']}(#{tag['value']})",items_path(:tag=>tag['_id']) %></span>
-<% end %>
+<% end if @tags %>
 </div>
 <%= link_to 'Nuevo', new_item_path%>

@@ -26,6 +26,18 @@ gem 'devise'
 gem 'mm-devise'
 
 gem 'omniauth-facebook'
+
+group :development, :test do
+  gem 'webrat'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'watchr'
+  gem 'spork'
+  gem 'factory_girl_rails'
+  gem 'test_notifier'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
